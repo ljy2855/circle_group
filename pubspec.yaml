@@ -1,7 +1,9 @@
 name: circle_group
-description: A new Flutter package project.
+description: Flutter package for circle group widget
 version: 0.0.1
-homepage:
+verified publisher:
+  - ljy2855@naver.com
+homepage: https://github.com/ljy2855/circle_group
 
 environment:
   sdk: ">=2.15.1 <3.0.0"
