@@ -11,29 +11,68 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Flutter package for circle group widget
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Make circle group widget shaped hexagon (limited 18 circles)
 
-## Getting started
+circle size is optimazed with parent widget size, inputted padding
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+
+
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+you can make circles up to 20 
 
 ```dart
-const like = 'sample';
+class MyCircleGroup extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.yellow[50],
+      appBar: AppBar(
+        title: Text("Circle Group"),
+      ),
+      body: Container(
+        padding: EdgeInsets.all(10),
+        child: CircleGroup(
+          origin: Offset(0, 0),
+          elevation: 10,
+          childPadding: 10,
+          outPadding: 30,
+          centerWidget: CircleAvatar(
+            backgroundImage: NetworkImage(
+                'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+          ),
+          children: List.generate(
+              3, (index) => Icon(Icons.accessibility_new_rounded)),
+        ),
+      ),
+    );
+  }
+}
 ```
+
+![Screenshot_1644995053](https://user-images.githubusercontent.com/10630330/154214004-40e31c79-615a-4365-abbc-1a719cc85ee3.png)
+
+```dart
+ children: List.generate(
+              7, (index) => Icon(Icons.accessibility_new_rounded))
+```
+![Screenshot_1644995077](https://user-images.githubusercontent.com/10630330/154214091-b9d5aee8-2a5e-478f-ae33-b7a5c86d1de0.png)
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+**parameters**
+```dart
+required List<Widget> children,
+Widget centerWidget,
+double childPadding = 10.0,
+double outPadding = 10.0,
+Color backgroundColor,
+Color childColor,
+double elevation = 10.0,
+Offset origin = Offset.zero,
+```
