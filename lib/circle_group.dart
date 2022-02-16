@@ -12,6 +12,8 @@ class CircleGroup extends StatelessWidget {
   final double? childSize;
   final double outPadding;
   final Color? backgroundColor;
+  final Color? childColor;
+  final double elevation;
   late List<Offset> childPositions;
   late List<Offset> emptyChildPositions;
 
@@ -23,6 +25,8 @@ class CircleGroup extends StatelessWidget {
     this.outPadding = 10.0,
     this.childSize,
     this.backgroundColor,
+    this.childColor,
+    this.elevation = 10.0,
   });
 
   @override
@@ -86,15 +90,15 @@ class CircleGroup extends StatelessWidget {
   }
 
   Widget childCircle(double size, Widget? child) {
-    return Container(
-      width: size,
-      height: size,
-      decoration: const BoxDecoration(
-        // TODO ADD color parameter
-        shape: BoxShape.circle,
-        color: Colors.white,
+    return PhysicalModel(
+      color: childColor ?? Colors.white,
+      shape: BoxShape.circle,
+      elevation: elevation,
+      child: Container(
+        width: size,
+        height: size,
+        child: child,
       ),
-      child: child,
     );
   }
 

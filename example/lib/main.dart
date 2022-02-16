@@ -47,10 +47,10 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Container(
-        padding: EdgeInsets.all(110),
+        padding: EdgeInsets.all(10),
         child: CircleGroup(
-          childPadding: 30,
-          children: List.generate(6, (index) => Icon(Icons.ac_unit)),
+          elevation: 5,
+          children: List.generate(7, (index) => Icon(Icons.ac_unit)),
         ),
       ),
     );
