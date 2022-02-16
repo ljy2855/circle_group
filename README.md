@@ -55,13 +55,15 @@ class MyCircleGroup extends StatelessWidget {
 }
 ```
 
-![Screenshot_1644995053](https://user-images.githubusercontent.com/10630330/154214004-40e31c79-615a-4365-abbc-1a719cc85ee3.png)
+<img scr="https://user-images.githubusercontent.com/10630330/154214004-40e31c79-615a-4365-abbc-1a719cc85ee3.png" width = "200" height = "400">
 
 ```dart
  children: List.generate(
               7, (index) => Icon(Icons.accessibility_new_rounded))
 ```
-![Screenshot_1644995077](https://user-images.githubusercontent.com/10630330/154214091-b9d5aee8-2a5e-478f-ae33-b7a5c86d1de0.png)
+
+<img scr="https://user-images.githubusercontent.com/10630330/154214091-b9d5aee8-2a5e-478f-ae33-b7a5c86d1de0.png" width = "200" height = "400">
+
 
 ## Additional information
 
