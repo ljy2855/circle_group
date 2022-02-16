@@ -7,18 +7,18 @@ import 'package:flutter/material.dart';
 class CircleGroup extends StatelessWidget {
   final List<Widget> children;
   final Widget? centerWidget;
-  late int? layer;
+  late int layer;
   final double childPadding;
   final double? childSize;
   final double outPadding;
   final Color? backgroundColor;
   final Color? childColor;
   final double elevation;
+  final Offset origin;
   late List<Offset> childPositions;
   late List<Offset> emptyChildPositions;
 
   CircleGroup({
-    this.layer,
     required this.children,
     this.centerWidget,
     this.childPadding = 10.0,
@@ -27,6 +27,7 @@ class CircleGroup extends StatelessWidget {
     this.backgroundColor,
     this.childColor,
     this.elevation = 10.0,
+    this.origin = Offset.zero,
   });
 
   @override
@@ -37,8 +38,8 @@ class CircleGroup extends StatelessWidget {
         final width = constraints.maxWidth;
         final maxSize = min(height, width);
 
-        assert(children.length < 18);
-        if (children.length >= 7) {
+        assert(children.length <= 18);
+        if (children.length > 6) {
           layer = 2;
         } else {
           layer = 1;
@@ -50,8 +51,9 @@ class CircleGroup extends StatelessWidget {
         setChildPositon(radius);
         print(childPositions);
 
-        final Offset centerPoint =
-            Offset(width / 2 - resizedChild / 2, height / 2 - resizedChild / 2);
+        final Offset centerPoint = Offset(
+            width / 2 - resizedChild / 2 + origin.dx,
+            height / 2 - resizedChild / 2 + origin.dy);
 
         return Container(
           decoration: BoxDecoration(color: backgroundColor ?? Colors.black12),
@@ -95,6 +97,9 @@ class CircleGroup extends StatelessWidget {
       shape: BoxShape.circle,
       elevation: elevation,
       child: Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+        ),
         width: size,
         height: size,
         child: child,
